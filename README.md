@@ -1,68 +1,48 @@
-# 💸 Cashi Payment App (KMP)
+# Base Compose Multiplatform (CMP) App
 
-This is a cross-platform FinTech app built with Kotlin Multiplatform (KMP), designed to allow users to send payments and view transaction history.
+This is a **base project template** for quickly starting new apps using **Jetpack Compose Multiplatform (CMP)**. It’s especially useful for migrating from native Android/iOS to CMP.
 
----
+## 🔧 What’s Included
 
-## 🚀 Features
+### ✅ Networking Layer
+- Uses [Ktor](https://ktor.io/) for API calls
+- Configured with basic request/response handling
+- Ready to connect with backend out of the box
+- Inspired by the implementation in the **Cashi** app
 
-- 🔁 **Send Payment**  
-  Users can send payments by entering:
-  - Email
-  - Amount
-  - Currency (USD, EUR)
+### ✅ Repository Layer (Data Layer)
+- Clean abstraction between data sources and business logic
+- Each feature can have its own repository
+- Ideal for scalable architecture
 
-- 📜 **Transaction History**  
-  Real-time updates of sent payments from **Firebase Firestore**
+### ✅ Business Layer (Use Cases)
+- Contains example use cases:
+  - `SubmitTransactionUseCase`
+  - `GetTransactionsUseCase`
+- Encourages clean separation of concerns
 
-- ☁️ **Backend API**  
-  Integrated with a deployed REST API hosted on Render:  
-  `POST https://transaction-api-hcyc.onrender.com/transaction`
+### ✅ UI Layer
+- Built with **Jetpack Compose Multiplatform**
+- Includes:
+  - Sample `ViewModel` using `kotlinx.coroutines`
+  - Basic UI screens as examp
+ 
+## Project Structure
+base-cmp-app/
+├── shared/             # Shared KMP code
+│   ├── network/        # Ktor client setup
+│   ├── repository/     # Data sources
+│   ├── business/       # Use cases
+│   └── presentation/   # UI and ViewModels
+├── androidApp/         # Android-specific code
+└── iosApp/             # iOS-specific code (if configured)
 
-- 🌐 **Cross-Platform (KMP)**  
-  Shared business logic between Android and iOS with `expect/actual` declarations for platform-specific code
-
-- 🧪 **(Optional) BDD Tests**  
-  Support for Cucumber-based behavior-driven development in the shared business module
-
----
-
-## 🧱 Tech Stack
-
-| Layer              | Tech                                  |
-|-------------------|----------------------------------------|
-| UI (Android)       | Jetpack Compose Multiplatform         |
-| Networking         | Ktor                                  |
-| DI                 | Koin                                  |
-| Shared Logic       | Kotlin Multiplatform                   |
-| Backend API        | Node.js + Express (hosted on Render)  |
-| Realtime DB        | Firebase Firestore                    |
-| Testing (optional) | Cucumber, JUnit, JMeter, Appium       |
-
----
-
-## 🛠️ Architecture
-
-:androidApp/
-├── Main UI (Compose)
-├── Screens: SendPaymentScreen, TransactionsHistoryScreen
-
-:business/
-├── Use Cases
-│ └── SendPaymentUseCase
-│ └── GetTransactionsUseCase
-
-:repository/
-├── Network Layer (Ktor)
-├── Firestore Integration
-├── TransactionRepository.kt
-
-:network/
-├── Ktor client setup & wrapper
+This template is maintained by @Fathsaif and serves as a foundation for all future CMP-based apps.
 
 ## Demo 
 
 
-https://github.com/user-attachments/assets/f2a90517-2142-42c8-8c70-7683d67d0c9f
+
+https://github.com/user-attachments/assets/12cc46eb-17c4-4ba4-bd67-ff0a20523f6f
 
 
